@@ -26,9 +26,9 @@ app.directive('emailDirective', function($timeout) {
         to: '',
         cc: '',
         bcc: '',
-        toLimit: 2,
-        ccLimit: 2,
-        bccLimit: 2
+        toLimit: 12,
+        ccLimit: 12,
+        bccLimit: 12
       };
 
       scope.limit = { ...scope.receiverData };
