@@ -1,0 +1,116 @@
+.email-to {
+  width: 100%;
+}
+.wrapper {
+  width: 500px;
+  margin: 60 auto;
+  border: 1px solid #d2d2d2;
+  padding: 32px;
+  -webkit-box-shadow: 10px 10px 5px -6px rgba(133, 133, 133, 1);
+  -moz-box-shadow: 10px 10px 5px -6px rgba(133, 133, 133, 1);
+  box-shadow: 10px 10px 5px -6px rgba(133, 133, 133, 1);
+}
+.wrap-receiver {
+  max-width: 145px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.email-to {
+  width: 100%;
+  padding: 8px 0px 0px 9px;
+  border: none;
+  outline: none;
+  margin-bottom: 11px;
+}
+.email-textarea {
+  min-height: 202px;
+  max-width: 100%;
+  min-width: 100%;
+}
+.send-btn {
+  padding: 10px;
+  width: 104px;
+  background: #2cbaf1;
+  border: none;
+  color: #020202;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+.cc-btn {
+  position: absolute;
+  top: 9px;
+  right: 6px;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: #51aeff;
+}
+.text-btn-wrap {
+  position: relative;
+  border: 1px solid #d2d2d2;
+  padding: 1px;
+  margin-bottom: 6px;
+  display: flex;
+}
+.inline-btn {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  width: 120px;
+  border: 1px solid #c3c3c3;
+  background: #fff;
+  color: #3a3939;
+  position: relative;
+  padding: 4px;
+  text-align: left;
+  margin: 3px;
+}
+.more-res {
+  font-size: 14px;
+  margin-left: 5px;
+  color: #000000;
+  cursor: pointer;
+}
+.del-ico {
+  float: right;
+  margin-top: -3px;
+  font-size: 9px !important;
+  color: #51aeff;
+  cursor: pointer;
+  position: absolute;
+  background: #ffff;
+  height: 18px;
+  left: 88%;
+  width: 11px;
+  text-align: right;
+}
+.more-res {
+  font-size: 11px;
+  margin-top: 5px;
+  color: #000000;
+  cursor: pointer;
+}
+
+.ql-container {
+  height: 210px !important;
+  border: none !important;
+}
+.ql-toolbar.ql-snow {
+  border:none !important;
+  border-bottom: 1px solid #ccc !important;
+}
+ .fa-paper-plane {
+  margin-right: 6px;
+  color: #3f51b5a6;
+}
+.ql-tooltip.ql-editing {
+  left: 0 !important;
+}

@@ -1,0 +1,97 @@
+<div class="wrapper">
+  <div class="text-btn-wrap">
+    <div class="wrap-receiver">
+      <button
+        class="inline-btn"
+        ng-repeat="data in receiver.to  | limitTo:receiverData.toLimit"
+        title="{{ data }}"
+      >
+        <i class="fa fa-close del-ico" ng-click="removeItem(data,'to')"></i
+        >{{ data }}
+      </button>
+      <span
+        class="more-res"
+        ng-click="receiverData.toLimit=''"
+        ng-show="receiver.to.length>limit.toLimit && receiverData.toLimit   "
+        >+ {{ receiver.to.length - limit.toLimit }} more</span
+      >
+    </div>
+    <input
+      class="email-to"
+      placeholder="To"
+      ng-blur="insertRes('to')"
+      ng-keypress="($event.charCode==13)? insertRes('to') : return"
+      ng-model="receiverData.to"
+      ng-click="reset('toLimit')"
+    />
+    <button ng-show="!cc" class="cc-btn" ng-click="display(1)">Cc</button>
+  </div>
+  <div class="text-btn-wrap" ng-show="cc">
+    <div class="wrap-receiver">
+      <button
+        class="inline-btn"
+        ng-repeat="data in receiver.cc  | limitTo:receiverData.ccLimit"
+        title="{{ data }}"
+      >
+        <i class="fa fa-close del-ico" ng-click="removeItem(data,'cc')"></i
+        >{{ data }}
+      </button>
+      <span
+        class="more-res"
+        ng-show="receiver.cc.length>limit.ccLimit  && receiverData.ccLimit"
+        ng-click="receiverData.ccLimit=''"
+        >+ {{ receiver.cc.length - limit.ccLimit }} more</span
+      >
+    </div>
+    <input
+      class="email-to"
+      placeholder="Cc"
+      ng-model="receiverData.cc"
+      ng-blur="insertRes('cc')"
+      ng-keypress="($event.charCode==13)? insertRes('cc') : return"
+      ng-click="reset('ccLimit')"
+    />
+    <button ng-show="!bcc" class="cc-btn" ng-click="display(2)">Bcc</button>
+  </div>
+  <div class="text-btn-wrap" ng-show="bcc">
+    <div class="wrap-receiver">
+      <button
+        class="inline-btn"
+        ng-repeat="data in receiver.bcc  | limitTo:receiverData.bccLimit"
+        title="{{ data }}"
+      >
+        <i class="fa fa-close del-ico" ng-click="removeItem(data,'bcc')"></i
+        >{{ data }}
+      </button>
+      <span
+        class="more-res"
+        ng-show="receiver.bcc.length>limit.bccLimit  && receiverData.bccLimit"
+        ng-click="receiverData.bccLimit=''"
+        >+ {{ receiver.bcc.length - limit.bccLimit }} more</span
+      >
+    </div>
+    <input
+      class="email-to"
+      placeholder="Bcc"
+      ng-model="receiverData.bcc"
+      ng-blur="insertRes('bcc')"
+      ng-keypress="($event.charCode==13)? insertRes('bcc') : return"
+      ng-click="reset('bccLimit')"
+    />
+  </div>
+  <div class="text-btn-wrap">
+    <input class="email-to" placeholder="Subject" ng-model="receiver.subject" />
+  </div>
+  <div class="text-btn-wrap">
+    <div class="editor-wrap" ng-model="receiver.body">
+      <ng-quill-editor
+        ng-model="title"
+        on-editor-created="editorCreated(editor)"
+        on-content-changed="contentChanged(editor, html, text)"
+      ></ng-quill-editor>
+    </div>
+  </div>
+  <div class="widget-wrap">
+    <button class="send-btn" ng-click="send()"><i class="fa fa-paper-plane"></i>Send</button>
+  </div>
+</div>
