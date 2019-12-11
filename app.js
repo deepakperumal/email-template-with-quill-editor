@@ -9,9 +9,6 @@ app.directive('emailDirective', function($timeout) {
       scope.title = '';
       scope.changeDetected = false;
 
-      scope.editorCreated = function(editor) {
-        console.log(editor);
-      };
       scope.contentChanged = function(editor, html, text) {
         scope.changeDetected = true;
         scope.receiver.body = html;
@@ -22,8 +19,7 @@ app.directive('emailDirective', function($timeout) {
         cc: [],
         bcc: [],
         subject: '',
-        body: '',
-        attachments: ''
+        body: ''
       };
 
       scope.receiverData = {
@@ -31,7 +27,7 @@ app.directive('emailDirective', function($timeout) {
         cc: '',
         bcc: '',
         toLimit: 2,
-        ccLimit: 3,
+        ccLimit: 2,
         bccLimit: 2
       };
 

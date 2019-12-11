@@ -1,9 +1,15 @@
 .email-to {
   width: 100%;
 }
+
+body {
+  background: #000000;
+}
+
 .wrapper {
-  width: 500px;
+  width: 908px;
   margin: 60 auto;
+  background: #ffff;
   border: 1px solid #d2d2d2;
   padding: 32px;
   -webkit-box-shadow: 10px 10px 5px -6px rgba(133, 133, 133, 1);
@@ -11,9 +17,7 @@
   box-shadow: 10px 10px 5px -6px rgba(133, 133, 133, 1);
 }
 .wrap-receiver {
-  max-width: 145px;
   display: flex;
-  flex-wrap: wrap;
 }
 .email-to {
   width: 100%;
@@ -64,8 +68,8 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-box-orient: vertical;
-  width: 120px;
-  border: 1px solid #c3c3c3;
+  width: 85px;
+  border:2px solid #5490da9e;
   background: #fff;
   color: #3a3939;
   position: relative;
@@ -83,12 +87,12 @@
   float: right;
   margin-top: -3px;
   font-size: 9px !important;
-  color: #51aeff;
+  color: red;
   cursor: pointer;
   position: absolute;
   background: #ffff;
   height: 18px;
-  left: 88%;
+  left: 83%;
   width: 11px;
   text-align: right;
 }
@@ -104,10 +108,10 @@
   border: none !important;
 }
 .ql-toolbar.ql-snow {
-  border:none !important;
+  border: none !important;
   border-bottom: 1px solid #ccc !important;
 }
- .fa-paper-plane {
+.fa-paper-plane {
   margin-right: 6px;
   color: #3f51b5a6;
 }
