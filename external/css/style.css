@@ -11,7 +11,7 @@ body {
   margin: 60 auto;
   background: #ffff;
   border: 1px solid #d2d2d2;
-  padding: 32px;
+  padding-bottom: 5px;
   -webkit-box-shadow: 10px 10px 5px -6px rgba(133, 133, 133, 1);
   -moz-box-shadow: 10px 10px 5px -6px rgba(133, 133, 133, 1);
   box-shadow: 10px 10px 5px -6px rgba(133, 133, 133, 1);
@@ -35,9 +35,9 @@ body {
 .send-btn {
   padding: 10px;
   width: 104px;
-  background: #2cbaf1;
-  border: none;
-  color: #020202;
+  background: #1a73e8;
+  border: 1px solid;
+  color: #fff;
   font-size: 13px;
   text-transform: uppercase;
   cursor: pointer;
@@ -93,7 +93,6 @@ body {
 }
 .fa-paper-plane {
   margin-right: 6px;
-  color: #3f51b5a6;
 }
 .ql-tooltip.ql-editing {
   left: 0 !important;
@@ -129,4 +128,19 @@ ng-quill-editor {
 .txt-invalid {
   background: #ff0000ab;
   color: #ffff;
+}
+.attachment-ico {
+  margin-left: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.wrap-title {
+  padding: 19px;
+  background: #404040;
+  color: #ffff;
+  font-weight: 700;
+  font-size: 17px;
+}
+body {
+  font-family: arial, sans-serif;
 }

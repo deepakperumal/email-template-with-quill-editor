@@ -1,4 +1,8 @@
 <div class="wrapper">
+
+<div class="wrap-title">New Message</div>
+
+
   <div class="text-btn-wrap">
     <div class="wrap-receiver">
       <button
@@ -94,5 +98,9 @@
   </div>
   <div class="widget-wrap">
     <button class="send-btn" ng-click="send()"><i class="fa fa-paper-plane"></i>Send</button>
+ 
+     <i class="fa fa-paperclip attachment-ico" onclick="document.getElementById('file').click()"></i>
+     <input type="file" multiple  id="file" style="display: none;">
+ 
   </div>
 </div>
