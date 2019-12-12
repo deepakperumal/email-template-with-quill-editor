@@ -19,16 +19,17 @@ app.directive('emailDirective', function($timeout) {
         cc: [],
         bcc: [],
         subject: '',
-        body: ''
+        body: '',
+        attachments:''
       };
 
       scope.receiverData = {
         to: '',
         cc: '',
         bcc: '',
-        toLimit: 12,
-        ccLimit: 12,
-        bccLimit: 12
+        toLimit: 5,
+        ccLimit: 5,
+        bccLimit: 5
       };
 
       scope.limit = { ...scope.receiverData };
@@ -37,8 +38,7 @@ app.directive('emailDirective', function($timeout) {
 
       scope.insertRes = par => {
         let temp = scope.receiver[par];
-        if (scope.receiverData[par].trim() && re.test(scope.receiverData[par]))
-          temp.push(scope.receiverData[par]);
+        if (scope.receiverData[par].trim()) temp.push(scope.receiverData[par]);
         scope.receiver[par] = [...new Set(temp)];
         scope.receiverData[par] = '';
       };
@@ -62,6 +62,10 @@ app.directive('emailDirective', function($timeout) {
             return val != item;
           }
         );
+      };
+
+      scope.checkValid = data => {
+        return re.test(data);
       };
     }
   };

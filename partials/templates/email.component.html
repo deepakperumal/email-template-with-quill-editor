@@ -4,10 +4,10 @@
       <button
         class="inline-btn"
         ng-repeat="data in receiver.to  | limitTo:receiverData.toLimit"
-        title="{{ data }}"
+         ng-class="checkValid(data)? 'txt-valid':'txt-invalid' "
       >
-        <i class="fa fa-close del-ico" ng-click="removeItem(data,'to')"></i
-        >{{ data }}
+      {{ data }}  <i class="fa fa-close del-ico" ng-click="removeItem(data,'to')"></i
+        >
       </button>
       <span
         class="more-res"
@@ -16,6 +16,7 @@
         >+ {{ receiver.to.length - limit.toLimit }} more</span
       >
     </div>
+    <button ng-show="!cc" class="cc-btn" ng-click="display(1)">Cc</button>
     <input
       class="email-to"
       placeholder="To"
@@ -24,17 +25,17 @@
       ng-model="receiverData.to"
       ng-click="reset('toLimit')"
     />
-    <button ng-show="!cc" class="cc-btn" ng-click="display(1)">Cc</button>
+   
   </div>
   <div class="text-btn-wrap" ng-show="cc">
     <div class="wrap-receiver">
       <button
         class="inline-btn"
         ng-repeat="data in receiver.cc  | limitTo:receiverData.ccLimit"
-        title="{{ data }}"
+          ng-class="checkValid(data)? 'txt-valid':'txt-invalid' "
       >
-        <i class="fa fa-close del-ico" ng-click="removeItem(data,'cc')"></i
-        >{{ data }}
+        {{ data }}<i class="fa fa-close del-ico" ng-click="removeItem(data,'cc')"></i
+          >
       </button>
       <span
         class="more-res"
@@ -58,10 +59,10 @@
       <button
         class="inline-btn"
         ng-repeat="data in receiver.bcc  | limitTo:receiverData.bccLimit"
-        title="{{ data }}"
+          ng-class="checkValid(data)? 'txt-valid':'txt-invalid' "
       >
-        <i class="fa fa-close del-ico" ng-click="removeItem(data,'bcc')"></i
-        >{{ data }}
+       {{ data }} <i class="fa fa-close del-ico" ng-click="removeItem(data,'bcc')"></i
+        >
       </button>
       <span
         class="more-res"

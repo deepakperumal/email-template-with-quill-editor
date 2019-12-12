@@ -7,7 +7,7 @@ body {
 }
 
 .wrapper {
-  width: 908px;
+  width: 550px;
   margin: 60 auto;
   background: #ffff;
   border: 1px solid #d2d2d2;
@@ -63,39 +63,14 @@ body {
   padding: 1px;
   margin-bottom: 6px;
 }
-.inline-btn {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-box-orient: vertical;
-  width: 97px;
-  border:1px solid gray;
-  background: #fff;
-  color: #3a3939;
-  position: relative;
-  padding: 8px;
-  text-align: left;
-  margin: 3px;
-}
+
 .more-res {
   font-size: 14px;
   margin-left: 5px;
   color: #000000;
   cursor: pointer;
 }
-.del-ico {
-  float: right;
-  margin-top: -3px;
-  font-size: 9px !important;
-  color: red;
-  cursor: pointer;
-  position: absolute;
-  background: #ffff;
-  height: 18px;
-  left: 83%;
-  width: 11px;
-  text-align: right;
-}
+
 .more-res {
   font-size: 11px;
   margin-top: 5px;
@@ -109,7 +84,12 @@ body {
 }
 .ql-toolbar.ql-snow {
   border: none !important;
-  border-bottom: 1px solid #ccc !important;
+  -webkit-box-shadow: 10px 10px 5px -8px rgba(153, 153, 153, 1);
+  -moz-box-shadow: 10px 10px 5px -8px rgba(153, 153, 153, 1);
+  box-shadow: 10px 10px 5px -8px rgba(153, 153, 153, 1);
+  position: relative;
+  top: -9px;
+  right: 5px;
 }
 .fa-paper-plane {
   margin-right: 6px;
@@ -117,4 +97,36 @@ body {
 }
 .ql-tooltip.ql-editing {
   left: 0 !important;
+}
+ng-quill-editor {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.inline-btn {
+  padding: 6px;
+  text-align: left;
+  padding: 6px;
+  margin-top: 5px;
+  margin-left: 7px;
+  font-weight: 400;
+  border: none;
+  border-radius: 14px;
+  letter-spacing: 1;
+}
+.del-ico {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  float: right;
+  margin: 3px 6px;
+  cursor: pointer;
+}
+.txt-valid {
+  background: #fff;
+  color: #0e0e0e;
+  border: 1px solid #b1b1b1 !important;
+}
+.txt-invalid {
+  background: #ff0000ab;
+  color: #ffff;
 }
