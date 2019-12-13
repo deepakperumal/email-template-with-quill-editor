@@ -1,6 +1,6 @@
-var app = angular.module('app', ['ngQuill']);
+var app = angular.module('app', ['ngQuill', 'ngFileUpload']);
 
-app.directive('emailDirective', function($timeout) {
+app.directive('emailDirective', function(Upload, $timeout) {
   return {
     restrict: 'E',
     transclude: true,
@@ -20,7 +20,7 @@ app.directive('emailDirective', function($timeout) {
         bcc: [],
         subject: '',
         body: '',
-        attachments:''
+        attachments: []
       };
 
       scope.receiverData = {
@@ -66,6 +66,53 @@ app.directive('emailDirective', function($timeout) {
 
       scope.checkValid = data => {
         return re.test(data);
+      };
+
+      scope.changeText = (event, index, key) => {
+        scope.receiver[key][index] = event.target.innerHTML
+          .trim()
+          .replace(/\s/g, '');
+      };
+
+      scope.updateReceiver = (event, key) => {
+        if (event.keyCode === 8 || event.keyCode === 46)
+          scope.receiver[key].pop();
+        else if (event.keyCode === 13) scope.insertRes(key);
+        return;
+      };
+
+      /* File Upload */
+
+      scope.uploadFiles = function(files, errFiles) {
+
+ for(let i=0;i<files.length;i++)scope.receiver.attachments.push(files[i]);
+
+        console.log(scope.receiver.attachments)
+        scope.errFiles = errFiles;
+        angular.forEach(files, function(file) {
+          file.upload = Upload.upload({
+            url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+            data: { file: file }
+          });
+
+          file.upload.then(
+            function(response) {
+              $timeout(function() {
+                file.result = response.data;
+              });
+            },
+            function(response) {
+              if (response.status > 0)
+                scope.errorMsg = response.status + ': ' + response.data;
+            },
+            function(evt) {
+              file.progress = Math.min(
+                100,
+                parseInt((100.0 * evt.loaded) / evt.total)
+              );
+            }
+          );
+        });
       };
     }
   };

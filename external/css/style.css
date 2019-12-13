@@ -59,9 +59,9 @@ body {
 }
 .text-btn-wrap {
   position: relative;
-  border: 1px solid #d2d2d2;
-  padding: 1px;
+  border-bottom: 1px solid #d2d2d2;
   margin-bottom: 6px;
+  padding-bottom: 10px;
 }
 
 .more-res {
@@ -112,12 +112,13 @@ ng-quill-editor {
   border: none;
   border-radius: 14px;
   letter-spacing: 1;
+  background: none;
 }
 .del-ico {
   font-size: 12px !important;
   font-weight: 400 !important;
   float: right;
-  margin: 3px 6px;
+  margin: 12px 9px;
   cursor: pointer;
 }
 .txt-valid {
@@ -127,6 +128,10 @@ ng-quill-editor {
 }
 .txt-invalid {
   background: #ff0000ab;
+  color: #ffff;
+}
+
+.txt-invalid button {
   color: #ffff;
 }
 .attachment-ico {
@@ -143,4 +148,69 @@ ng-quill-editor {
 }
 body {
   font-family: arial, sans-serif;
+}
+.thumb {
+  width: 24px;
+  height: 24px;
+  float: none;
+  position: relative;
+  top: 7px;
+}
+
+form .progress {
+  line-height: 15px;
+}
+
+.progress {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-shadow: 10px 10px 5px -5px rgba(191, 191, 191, 1);
+  -moz-box-shadow: 10px 10px 5px -5px rgba(191, 191, 191, 1);
+  box-shadow: 10px 10px 5px -5px rgba(191, 191, 191, 1);
+  font-size: 14px;
+  padding: 4px;
+  margin-left: -41px;
+  margin-bottom: 5px;
+}
+.progress-bar {
+  font-size: 12px;
+  background: #3673e8;
+  padding: 6px;
+  color: #fff;
+  margin-bottom: 8px;
+  margin-left: 5px;
+  border-radius: 11px;
+  max-width: 169px !important;
+  min-width: 28px !important;
+}
+ul {
+  list-style: none;
+}
+.wrap1 {
+  display: flex;
+}
+.cancel-icon {
+  font-size: 13px;
+  margin-top: 8px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.name {
+  margin-top: 6px;
+}
+.btn-text-wrap {
+  border: 1px solid;
+  border-radius: 23px;
+  margin-top: 3px;
+}
+
+button {
+  outline: none;
+}
+button,.receiver-email{ 
+  white-space: nowrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
