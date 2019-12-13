@@ -2,7 +2,6 @@
   width: 100%;
 }
 
- 
 .wrapper {
   width: 550px;
   margin: 60 auto;
@@ -104,19 +103,19 @@ ng-quill-editor {
   padding: 6px;
   text-align: left;
   padding: 6px;
-  margin-top: 5px;
   margin-left: 7px;
-  font-weight: 400;
+  font-size: 14px;
   border: none;
   border-radius: 14px;
-  letter-spacing: 1;
   background: none;
+  display: flex;
+  align-items: center;
 }
 .del-ico {
   font-size: 12px !important;
   font-weight: 400 !important;
   float: right;
-  margin: 12px 9px;
+  margin: 7px 9px;
   cursor: pointer;
 }
 .txt-valid {
@@ -125,12 +124,21 @@ ng-quill-editor {
   border: 1px solid #b1b1b1 !important;
 }
 .txt-invalid {
-  background: #ff0000ab;
+  background: #cc2d22;
   color: #ffff;
 }
 
-.txt-invalid button {
+.txt-invalid span {
   color: #ffff;
+}
+
+.txt-valid span {
+  color: #464646;
+}
+
+.txt-valid i 
+{
+  color: #afafaf;
 }
 .attachment-ico {
   margin-left: 8px;
@@ -199,16 +207,23 @@ ul {
 .btn-text-wrap {
   border: 1px solid;
   border-radius: 23px;
+  overflow: hidden;
   margin-top: 3px;
+  display: flex;
+  height: 24px;
 }
 
 button {
   outline: none;
 }
-button,.receiver-email{ 
-  white-space: nowrap;       /* css-3 */
-  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;      /* Opera 4-6 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+span,
+.receiver-email {
+  white-space: nowrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+.wrap-content {
+  padding: 8px;
 }
