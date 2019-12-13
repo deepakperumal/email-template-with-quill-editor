@@ -44,16 +44,14 @@
   overflow: hidden;
 }
 .cc-btn {
-  position: absolute;
-  top: 9px;
-  right: 6px;
   border: none;
   background: #fff;
   cursor: pointer;
-  font-size: 13px;
-  font-weight: 700;
-  color: #51aeff;
+  font-size: 17px;
+  float: right;
+  color: 858585;
 }
+
 .text-btn-wrap {
   position: relative;
   border-bottom: 1px solid #d2d2d2;
@@ -226,4 +224,13 @@ span,
 }
 .wrap-content {
   padding: 8px;
+}
+
+.table {
+  width: 100%;
+  color: #858585;
+}
+.table-title {
+  width: 8px;
+  padding-left: 8px;
 }

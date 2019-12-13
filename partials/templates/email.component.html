@@ -1,169 +1,103 @@
 <div class="wrapper">
   <div class="wrap-title">New Message</div>
-
   <div class="wrap-content">
-    <div class="text-btn-wrap">
-      <div class="wrap-receiver">
-        <div
-          class="btn-text-wrap"
-          ng-repeat="(index,data) in receiver.to  | limitTo:receiverData.toLimit  track by $index"
-          ng-class="checkValid(data)? 'txt-valid':'txt-invalid'"
-        >
-          <span
-            contenteditable
-            class="inline-btn"
-            ng-model="receiver.to[index]"
-            ng-blur="changeText($event,$index,'to')"
-          >
-            {{ data }}
-          </span>
-          <i class="fa fa-close del-ico" ng-click="removeItem(data,'to')"></i>
-        </div>
-
-        <span
-          class="more-res"
-          ng-click="receiverData.toLimit=''"
-          ng-show="receiver.to.length>limit.toLimit && receiverData.toLimit   "
-          >+ {{ receiver.to.length - limit.toLimit }} more</span
-        >
-      </div>
-      <input
-        class="email-to"
-        placeholder="To"
-        ng-blur="insertRes('to')"
-        ng-keydown="updateReceiver($event,'to')"
-        ng-model="receiverData.to"
-        ng-click="reset('toLimit')"
-      />
-      <button ng-show="!cc" class="cc-btn" ng-click="display(1)">Cc</button>
-    </div>
-    <div class="text-btn-wrap" ng-show="cc">
-      <div class="wrap-receiver">
-        <div
-          class="btn-text-wrap"
-          ng-repeat="data in receiver.cc  | limitTo:receiverData.ccLimit"
-          ng-class="checkValid(data)? 'txt-valid':'txt-invalid' "
-        >
-          <span
-            contenteditable
-            class="inline-btn"
-            ng-blur="changeText($event,$index,'cc')"
-          >
-            {{ data }}
-          </span>
-
-          <i class="fa fa-close del-ico" ng-click="removeItem(data,'cc')"></i>
-        </div>
-
-        <span
-          class="more-res"
-          ng-show="receiver.cc.length>limit.ccLimit  && receiverData.ccLimit"
-          ng-click="receiverData.ccLimit=''"
-          >+ {{ receiver.cc.length - limit.ccLimit }} more</span
-        >
-      </div>
-      <input
-        class="email-to"
-        placeholder="Cc"
-        ng-model="receiverData.cc"
-        ng-blur="insertRes('cc')"
-        ng-keydown="updateReceiver($event,'cc')"
-        ng-click="reset('ccLimit')"
-      />
-      <button ng-show="!bcc" class="cc-btn" ng-click="display(2)">Bcc</button>
-    </div>
-    <div class="text-btn-wrap" ng-show="bcc">
-      <div class="wrap-receiver">
-        <div
-          class="btn-text-wrap"
-          ng-repeat="data in receiver.bcc  | limitTo:receiverData.bccLimit"
-          ng-class="checkValid(data)? 'txt-valid':'txt-invalid' "
-        >
-          <span
-            contenteditable
-            ng-blur="changeText($event,$index,'bcc')"
-            class="inline-btn"
-          >
-            {{ data }}
-          </span>
-
-          <i class="fa fa-close del-ico" ng-click="removeItem(data,'bcc')"></i>
-        </div>
-
-        <span
-          class="more-res"
-          ng-show="receiver.bcc.length>limit.bccLimit  && receiverData.bccLimit"
-          ng-click="receiverData.bccLimit=''"
-          >+ {{ receiver.bcc.length - limit.bccLimit }} more</span
-        >
-      </div>
-      <input
-        class="email-to"
-        placeholder="Bcc"
-        ng-model="receiverData.bcc"
-        ng-blur="insertRes('bcc')"
-        ng-keydown="updateReceiver($event,'bcc')"
-        ng-click="reset('bccLimit')"
-      />
-    </div>
-    <div class="text-btn-wrap">
-      <input
-        class="email-to"
-        placeholder="Subject"
-        ng-model="receiver.subject"
-      />
-    </div>
-    <div class="text-btn-wrap">
-      <div class="editor-wrap" ng-model="receiver.body">
-        <ng-quill-editor
-          ng-model="title"
-          on-editor-created="editorCreated(editor)"
-          on-content-changed="contentChanged(editor, html, text)"
-        ></ng-quill-editor>
-      </div>
-    </div>
-    <div class="widget-wrap">
-        <button class="send-btn" ng-click="send()">
-          <i class="fa fa-paper-plane"></i>Send
-        </button>
-    
-        <i
-          class="fa fa-paperclip attachment-ico"
-          onclick="document.getElementById('file').click()"
-        ></i>
-    
-        <div class="upload-file-cont">
-          <ul>
-            <li ng-repeat="f in receiver.attachments" style="font:smaller">
-              <div class="progress" ng-show="f.progress >= 0">
-                <span class="name">{{ f.name }} </span>
-                <div class="wrap1">
-                  <div
-                    ng-style="{width: f.progress +'px'}"
-                    class="progress-bar"
-                    ng-bind="f.progress + '%'"
-                    ng-if="f.progress!=100"
-                  ></div>
-                  <i
-                    class="fa fa-close cancel-icon"
-                    ng-click="removeItem(f,'attachments')"
-                  ></i>
-                </div>
+    <td class="text-btn-wrap">
+      <table class="table">
+        <tr>
+          <td class="table-title">To</td>
+          <td>
+            <div class="wrap-receiver">
+              <div class="btn-text-wrap"
+                ng-repeat="(index,data) in receiver.to  | limitTo:receiverData.toLimit  track by $index"
+                ng-class="checkValid(data)? 'txt-valid':'txt-invalid'">
+                <span contenteditable class="inline-btn" ng-model="receiver.to[index]"
+                  ng-blur="changeText($event,$index,'to')">
+                  {{ data }}
+                </span>
+                <i class="fa fa-close del-ico" ng-click="removeItem(data,'to')"></i>
               </div>
-            </li>
-          </ul>
-        </div>
+
+              <span class="more-res" ng-click="receiverData.toLimit=''"
+                ng-show="receiver.to.length>limit.toLimit && receiverData.toLimit   ">+
+                {{ receiver.to.length - limit.toLimit }} more</span>
+              <input class="email-to" ng-blur="insertRes('to')" ng-keydown="updateReceiver($event,'to')"
+                ng-model="receiverData.to" ng-click="reset('toLimit')" />
+            </div>
+          </td>
+          <td><button ng-show="!cc" class="cc-btn" ng-click="display(1)">Cc</button></td>
+        </tr>
+      </table>
+ 
+  <div class="text-btn-wrap" ng-show="cc">
+    <div class="wrap-receiver">
+      <div class="btn-text-wrap" ng-repeat="data in receiver.cc  | limitTo:receiverData.ccLimit"
+        ng-class="checkValid(data)? 'txt-valid':'txt-invalid' ">
+        <span contenteditable class="inline-btn" ng-blur="changeText($event,$index,'cc')">
+          {{ data }}
+        </span>
+
+        <i class="fa fa-close del-ico" ng-click="removeItem(data,'cc')"></i>
       </div>
+
+      <span class="more-res" ng-show="receiver.cc.length>limit.ccLimit  && receiverData.ccLimit"
+        ng-click="receiverData.ccLimit=''">+ {{ receiver.cc.length - limit.ccLimit }} more</span>
+    </div>
+    <input class="email-to" placeholder="Cc" ng-model="receiverData.cc" ng-blur="insertRes('cc')"
+      ng-keydown="updateReceiver($event,'cc')" ng-click="reset('ccLimit')" />
+    <button ng-show="!bcc" class="cc-btn" ng-click="display(2)">Bcc</button>
   </div>
+  <div class="text-btn-wrap" ng-show="bcc">
+    <div class="wrap-receiver">
+      <div class="btn-text-wrap" ng-repeat="data in receiver.bcc  | limitTo:receiverData.bccLimit"
+        ng-class="checkValid(data)? 'txt-valid':'txt-invalid' ">
+        <span contenteditable ng-blur="changeText($event,$index,'bcc')" class="inline-btn">
+          {{ data }}
+        </span>
+
+        <i class="fa fa-close del-ico" ng-click="removeItem(data,'bcc')"></i>
+      </div>
+
+      <span class="more-res" ng-show="receiver.bcc.length>limit.bccLimit  && receiverData.bccLimit"
+        ng-click="receiverData.bccLimit=''">+ {{ receiver.bcc.length - limit.bccLimit }} more</span>
+    </div>
+    <input class="email-to" placeholder="Bcc" ng-model="receiverData.bcc" ng-blur="insertRes('bcc')"
+      ng-keydown="updateReceiver($event,'bcc')" ng-click="reset('bccLimit')" />
+  </div>
+  <div class="text-btn-wrap">
+    <input class="email-to" placeholder="Subject" ng-model="receiver.subject" />
+  </div>
+  <div class="text-btn-wrap">
+    <div class="editor-wrap" ng-model="receiver.body">
+      <ng-quill-editor ng-model="title" on-editor-created="editorCreated(editor)"
+        on-content-changed="contentChanged(editor, html, text)"></ng-quill-editor>
+    </div>
+  </div>
+  <div class="widget-wrap">
+    <button class="send-btn" ng-click="send()">
+      <i class="fa fa-paper-plane"></i>Send
+    </button>
+
+    <i class="fa fa-paperclip attachment-ico" onclick="document.getElementById('file').click()"></i>
+
+    <div class="upload-file-cont">
+      <ul>
+        <li ng-repeat="f in receiver.attachments" style="font:smaller">
+          <div class="progress" ng-show="f.progress >= 0">
+            <span class="name">{{ f.name }} </span>
+            <div class="wrap1">
+              <div ng-style="{width: f.progress +'px'}" class="progress-bar" ng-bind="f.progress + '%'"
+                ng-if="f.progress!=100"></div>
+              <i class="fa fa-close cancel-icon" ng-click="removeItem(f,'attachments')"></i>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 
 </div>
 
-<button
-  ngf-select="uploadFiles($files, $invalidFiles)"
-  multiple
-  ngf-max-height="1000"
-  ngf-max-size="100MB"
-  style="display: none;"
-  id="file"
-></button>
+<button ngf-select="uploadFiles($files, $invalidFiles)" multiple ngf-max-height="1000" ngf-max-size="100MB"
+  style="display: none;" id="file"></button>
