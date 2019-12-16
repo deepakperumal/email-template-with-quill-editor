@@ -82,15 +82,14 @@ app.directive('emailDirective', function(Upload, $timeout) {
       };
 
       scope.updateReceiver = (event, key) => {
-
- 
- 
         if (
           (event.keyCode === 8 || event.keyCode === 46) &&
           scope.receiverData[key] == ''
         )
           scope.receiver[key].pop();
-        else if (event.keyCode === 13 || event.keyCode === 9 ||event.keyCode === 188){ scope.insertRes(key)}
+        else if (event.keyCode === 13 || event.keyCode === 9) {
+          scope.insertRes(key);
+        }
         return;
       };
 

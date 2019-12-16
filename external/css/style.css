@@ -264,6 +264,7 @@ span,
   margin-left: -6px;
   border-bottom: 1px solid #cecece;
   padding-bottom: 25px;
+  width: 100% !important;
 }
 
 td {

@@ -8,7 +8,7 @@
             <td class="table-title"><span class="t1">To</span></td>
             <td>
               <div class="wrap-receiver">
-                <div
+                <span
                   ng-if="receiverData.toLimit==''"
                   class="btn-text-wrap"
                   ng-repeat="(index,data) in receiver.to  | limitTo:receiverData.toLimit  track by $index"
@@ -27,7 +27,7 @@
                   ></i>
                 </div>
 
-                <div class="sep-wrap" ng-click="receiverData.toLimit=''">
+                <div class="sep-wrap"  >
                   <span
                     ng-if="receiverData.toLimit!=''"
                     ng-repeat="(index,data) in receiver.to  | limitTo:receiverData.toLimit  track by $index"
@@ -89,7 +89,7 @@
                   ></i>
                 </div>
 
-                <div class="sep-wrap" ng-click="receiverData.ccLimit=''">
+                <div class="sep-wrap" >
                   <span
                     ng-if="receiverData.ccLimit!=''"
                     ng-repeat="(index,data) in receiver.cc  | limitTo:receiverData.ccLimit  track by $index"
@@ -145,7 +145,7 @@
                   ></i>
                 </div>
 
-                <div class="sep-wrap" ng-click="receiverData.bccLimit=''">
+                <div class="sep-wrap"  >
                   <span
                     ng-if="receiverData.bccLimit!=''"
                     ng-repeat="(index,data) in receiver.bcc  | limitTo:receiverData.bccLimit  track by $index"
