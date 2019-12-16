@@ -68,6 +68,13 @@ app.directive('emailDirective', function(Upload, $timeout) {
         return re.test(data);
       };
 
+      scope.bytesToSize = bytes => {
+        var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+        if (bytes == 0) return '0 Byte';
+        var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+        return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+      };
+
       scope.changeText = (event, index, key) => {
         scope.receiver[key][index] = event.target.innerHTML
           .trim()
@@ -75,19 +82,29 @@ app.directive('emailDirective', function(Upload, $timeout) {
       };
 
       scope.updateReceiver = (event, key) => {
-        if (event.keyCode === 8 || event.keyCode === 46)
+
+ 
+ 
+        if (
+          (event.keyCode === 8 || event.keyCode === 46) &&
+          scope.receiverData[key] == ''
+        )
           scope.receiver[key].pop();
-        else if (event.keyCode === 13) scope.insertRes(key);
+        else if (event.keyCode === 13 || event.keyCode === 9 ||event.keyCode === 188){ scope.insertRes(key)}
         return;
+      };
+
+      scope.resetGlobal = resetKeys => {
+        for (var i = 0; i < resetKeys.length; i++)
+          scope.receiverData[resetKeys[i]] = scope.limit[resetKeys[i]];
       };
 
       /* File Upload */
 
       scope.uploadFiles = function(files, errFiles) {
+        for (let i = 0; i < files.length; i++)
+          scope.receiver.attachments.push(files[i]);
 
- for(let i=0;i<files.length;i++)scope.receiver.attachments.push(files[i]);
-
-        console.log(scope.receiver.attachments)
         scope.errFiles = errFiles;
         angular.forEach(files, function(file) {
           file.upload = Upload.upload({

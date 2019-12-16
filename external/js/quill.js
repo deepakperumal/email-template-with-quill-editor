@@ -9103,7 +9103,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var _this = _possibleConstructorReturn(this, (Toolbar.__proto__ || Object.getPrototypeOf(Toolbar)).call(this, quill, options));
 
 	    if (Array.isArray(_this.options.container)) {
-	      var container = document.createElement('div');
+				var container = document.createElement('div');
+	 container.textContent=''
 	      addControls(container, _this.options.container);
 	      quill.container.parentNode.insertBefore(container, quill.container);
 	      _this.container = container;

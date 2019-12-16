@@ -1,7 +1,13 @@
 .email-to {
   width: 100%;
 }
-
+.sep-wrap {
+  position: relative;
+  top: 18px;
+  left: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
 .wrapper {
   width: 550px;
   margin: 60 auto;
@@ -13,9 +19,10 @@
   -moz-box-shadow: 10px 10px 5px -6px rgba(133, 133, 133, 1);
   box-shadow: 10px 10px 5px -6px rgba(133, 133, 133, 1);
 }
-.wrap-receiver {
-  display: flex;
-  flex-wrap: wrap;
+.txt-sep-invalid {
+  border-bottom: 2px dotted red;
+  margin-left: 4px;
+  margin-right: 6px;
 }
 .email-to {
   width: 100%;
@@ -23,6 +30,8 @@
   border: none;
   outline: none;
   margin-bottom: 11px;
+
+  font-size: 17px;
 }
 .email-textarea {
   min-height: 202px;
@@ -30,14 +39,14 @@
   min-width: 100%;
 }
 .send-btn {
-  padding: 10px;
+  padding: 11px;
   width: 104px;
   background: #1a73e8;
   border: 1px solid;
   color: #fff;
-  font-size: 13px;
-  text-transform: uppercase;
+  font-size: 16px;
   cursor: pointer;
+  border-radius: 7px;
 }
 
 .wrapper {
@@ -54,23 +63,23 @@
 
 .text-btn-wrap {
   position: relative;
-  border-bottom: 1px solid #d2d2d2;
-  margin-bottom: 6px;
   padding-bottom: 10px;
 }
 
 .more-res {
-  font-size: 14px;
-  margin-left: 5px;
+  font-size: 15px;
+
   color: #000000;
   cursor: pointer;
+  padding: 4px;
+  border: 1px solid red;
 }
 
 .more-res {
-  font-size: 11px;
-  margin-top: 5px;
   color: #000000;
   cursor: pointer;
+  margin-top: -4px;
+  height: 14px;
 }
 
 .ql-container {
@@ -86,6 +95,11 @@
   top: -9px;
   right: 5px;
 }
+
+.txt-sep-invalid,
+.txt-sep-valid {
+  margin-bottom: 11px;
+}
 .fa-paper-plane {
   margin-right: 6px;
 }
@@ -96,7 +110,9 @@ ng-quill-editor {
   display: flex;
   flex-direction: column-reverse;
 }
-
+.table-title {
+  width: auto;
+}
 .inline-btn {
   padding: 6px;
   text-align: left;
@@ -134,8 +150,7 @@ ng-quill-editor {
   color: #464646;
 }
 
-.txt-valid i 
-{
+.txt-valid i {
   color: #afafaf;
 }
 .attachment-ico {
@@ -167,24 +182,20 @@ form .progress {
 
 .progress {
   display: flex;
-  flex-direction: row;
-  -webkit-box-shadow: 10px 10px 5px -5px rgba(191, 191, 191, 1);
   -moz-box-shadow: 10px 10px 5px -5px rgba(191, 191, 191, 1);
-  box-shadow: 10px 10px 5px -5px rgba(191, 191, 191, 1);
   font-size: 14px;
   padding: 4px;
   margin-left: -41px;
   margin-bottom: 5px;
+  border-bottom: 1px solid #cecece;
 }
 .progress-bar {
   font-size: 12px;
   background: #3673e8;
   padding: 6px;
   color: #fff;
-  margin-bottom: 8px;
-  margin-left: 5px;
-  border-radius: 11px;
   max-width: 169px !important;
+  z-index: 999999;
   min-width: 28px !important;
 }
 ul {
@@ -192,15 +203,28 @@ ul {
 }
 .wrap1 {
   display: flex;
+  width: 100px;
+  border: 1px solid gray;
+  position: absolute;
+  left: 60%;
+  z-index: 9999999;
+  height: 17px;
 }
 .cancel-icon {
   font-size: 13px;
   margin-top: 8px;
   margin-left: 10px;
+  float: right;
+  position: absolute;
+  left: 67%;
+  color: #c5c5c5;
   cursor: pointer;
 }
 .name {
   margin-top: 6px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #0045ca;
 }
 .btn-text-wrap {
   border: 1px solid;
@@ -209,6 +233,10 @@ ul {
   margin-top: 3px;
   display: flex;
   height: 24px;
+}
+.wrap-receiver {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 button {
@@ -230,7 +258,23 @@ span,
   width: 100%;
   color: #858585;
 }
-.table-title {
-  width: 8px;
-  padding-left: 8px;
+
+.sub {
+  font-size: 16px;
+  margin-left: -6px;
+  border-bottom: 1px solid #cecece;
+  padding-bottom: 25px;
+}
+
+td {
+  border-bottom: 1px solid #e0e0e0;
+}
+span.size-cont.ng-binding.ng-scope {
+  color: gray;
+}
+.sub-content-wrap {
+  display: flex;
+}
+.t1 {
+  color: gray;
 }
