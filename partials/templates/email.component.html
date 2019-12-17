@@ -38,11 +38,11 @@
 
                 </div>
 
-                <div class="sep-wrap"  >
+                <div class="sep-wrap"  ng-click="receiverData.toLimit=''" >
                   <span
                     ng-if="receiverData.toLimit!=''"
                     ng-repeat="(index,data) in receiver.to  | limitTo:receiverData.toLimit  track by $index"
-                    ng-class="checkValid(data)? 'txt-sep-valid':'txt-sep-invalid'"  ng-click="receiverData.toLimit=''"
+                    ng-class="checkValid(data)? 'txt-sep-valid':'txt-sep-invalid'"  
                   >
                     {{ data }},
                   </span>
@@ -105,12 +105,12 @@
                 />
 
               </div>
-                <div class="sep-wrap" >
+                <div class="sep-wrap"  ng-click="receiverData.ccLimit=''">
                   <span
                     ng-if="receiverData.ccLimit!=''"
                     ng-repeat="(index,data) in receiver.cc  | limitTo:receiverData.ccLimit  track by $index"
                     ng-class="checkValid(data)? 'txt-sep-valid':'txt-sep-invalid'"
-                    ng-click="receiverData.ccLimit=''"
+                    
                   >
                     {{ data }},
                   </span>
@@ -165,12 +165,12 @@
               />
               </div>
 
-                <div class="sep-wrap"  >
+                <div class="sep-wrap" ng-click="receiverData.bccLimit=''"  >
                   <span
                     ng-if="receiverData.bccLimit!=''"
                     ng-repeat="(index,data) in receiver.bcc  | limitTo:receiverData.bccLimit  track by $index"
                     ng-class="checkValid(data)? 'txt-sep-valid':'txt-sep-invalid'"
-                    ng-click="receiverData.bccLimit=''"
+                    
                   >
                     {{ data }},
                   </span>
