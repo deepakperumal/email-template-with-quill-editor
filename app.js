@@ -81,6 +81,8 @@ app.directive('emailDirective', function(Upload, $timeout) {
           .replace(/\s/g, '');
       };
 
+ 
+
       scope.updateReceiver = (event, key) => {
         if (
           (event.keyCode === 8 || event.keyCode === 46) &&

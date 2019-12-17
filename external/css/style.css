@@ -1,10 +1,8 @@
-.email-to {
-  width: 100%;
-}
+ 
 .sep-wrap {
   position: relative;
-  top: 18px;
-  left: 15px;
+  top: -13px;
+  left: 3px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -25,12 +23,12 @@
   margin-right: 6px;
 }
 .email-to {
-  width: 100%;
+  width: 30%;
   padding: 8px 0px 0px 9px;
   border: none;
   outline: none;
   margin-bottom: 11px;
-
+  color: #5d5d5d;
   font-size: 17px;
 }
 .email-textarea {
@@ -111,7 +109,13 @@ ng-quill-editor {
   flex-direction: column-reverse;
 }
 .table-title {
-  width: auto;
+  max-width: 8px;
+  z-index: 999999;
+  background: #ffffffff;
+}
+
+.t4 {
+  max-width: 22px !important;
 }
 .inline-btn {
   padding: 6px;

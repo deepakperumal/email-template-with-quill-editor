@@ -3,9 +3,9 @@
   <div class="wrap-content">
     <td class="text-btn-wrap">
       <table class="table">
-        <tbody>
+ 
           <tr>
-            <td class="table-title"><span class="t1">To</span></td>
+            <td class="table-title" ng-class="{'t4':receiver.to.length>=1 }"><span class="t1">To</span></td>
             <td>
               <div class="wrap-receiver">
                 <span
@@ -25,13 +25,24 @@
                     class="fa fa-close del-ico"
                     ng-click="removeItem(data,'to')"
                   ></i>
+                  </span>
+
+                  <input
+                  class="email-to"
+                  ng-blur="receiverData.to=''"
+                  ng-keydown="updateReceiver($event,'to');"
+                  ng-model="receiverData.to"
+                  ng-focus="receiverData.toLimit='';resetGlobal(['ccLimit','bccLimit']);"
+                  
+                />
+
                 </div>
 
                 <div class="sep-wrap"  >
                   <span
                     ng-if="receiverData.toLimit!=''"
                     ng-repeat="(index,data) in receiver.to  | limitTo:receiverData.toLimit  track by $index"
-                    ng-class="checkValid(data)? 'txt-sep-valid':'txt-sep-invalid'"
+                    ng-class="checkValid(data)? 'txt-sep-valid':'txt-sep-invalid'"  ng-click="receiverData.toLimit=''"
                   >
                     {{ data }},
                   </span>
@@ -43,13 +54,7 @@
                   >
                 </div>
 
-                <input
-                  class="email-to"
-                  ng-blur="receiverData.to=''"
-                  ng-keydown="updateReceiver($event,'to');"
-                  ng-model="receiverData.to"
-                  ng-focus="receiverData.toLimit='';resetGlobal(['ccLimit','bccLimit']);"
-                />
+
               </div>
             </td>
             <td>
@@ -66,8 +71,10 @@
             </td>
           </tr>
 
+        </table>
+        <table class="table">
           <tr ng-show="cc">
-            <td class="table-title"><span class="t1">Cc</span></td>
+            <td class="table-title" ng-class="{'t4':receiver.cc.length>=1 }"><span class="t1">Cc</span></td>
             <td>
               <div class="wrap-receiver">
                 <div
@@ -89,12 +96,21 @@
                   ></i>
                 </div>
 
+                <input
+                  class="email-to"
+                  ng-blur="receiverData.cc=''"
+                  ng-keydown="updateReceiver($event,'cc')"
+                  ng-model="receiverData.cc"
+                  ng-focus="receiverData.ccLimit='';resetGlobal(['toLimit','bccLimit']);"
+                />
+
+              </div>
                 <div class="sep-wrap" >
                   <span
                     ng-if="receiverData.ccLimit!=''"
                     ng-repeat="(index,data) in receiver.cc  | limitTo:receiverData.ccLimit  track by $index"
                     ng-class="checkValid(data)? 'txt-sep-valid':'txt-sep-invalid'"
-                    ng-click="reset('ccLimit')"
+                    ng-click="receiverData.ccLimit=''"
                   >
                     {{ data }},
                   </span>
@@ -106,14 +122,8 @@
                   >
                 </div>
 
-                <input
-                  class="email-to"
-                  ng-blur="receiverData.cc=''"
-                  ng-keydown="updateReceiver($event,'cc')"
-                  ng-model="receiverData.cc"
-                  ng-focus="receiverData.ccLimit='';resetGlobal(['toLimit','bccLimit']);"
-                />
-              </div>
+
+       
             </td>
             <td ng-if="!bcc  ">
               <button class="cc-btn" ng-click="display(3)">
@@ -121,9 +131,10 @@
               </button>
             </td>
           </tr>
-
+          </table>
+          <table class="table">
           <tr ng-show="bcc">
-            <td class="table-title"><span class="t1">Bcc</span></td>
+            <td class="table-title" ng-class="{'t4':receiver.bcc.length>=1 }"><span class="t1">Bcc</span></td>
             <td>
               <div class="wrap-receiver">
                 <div
@@ -144,13 +155,22 @@
                     ng-click="removeItem(data,'bcc')"
                   ></i>
                 </div>
+                <input
+                class="email-to"
+                ng-blur="receiverData.bcc=''"
+                ng-keydown="updateReceiver($event,'bcc')"
+                ng-model="receiverData.bcc"
+                ng-focus="receiverData.bccLimit='';resetGlobal(['toLimit','ccLimit']);"
+
+              />
+              </div>
 
                 <div class="sep-wrap"  >
                   <span
                     ng-if="receiverData.bccLimit!=''"
                     ng-repeat="(index,data) in receiver.bcc  | limitTo:receiverData.bccLimit  track by $index"
                     ng-class="checkValid(data)? 'txt-sep-valid':'txt-sep-invalid'"
-                    ng-click="reset('bccLimit')"
+                    ng-click="receiverData.bccLimit=''"
                   >
                     {{ data }},
                   </span>
@@ -162,19 +182,11 @@
                   >
                 </div>
 
-                <input
-                  class="email-to"
-                  ng-blur="receiverData.bcc=''"
-                  ng-keydown="updateReceiver($event,'bcc')"
-                  ng-model="receiverData.bcc"
-                  ng-focus="receiverData.bccLimit='';resetGlobal(['toLimit','ccLimit']);"
-                />
-              </div>
+
+              
             </td>
           </tr>
-        </tbody>
-      </table>
-
+        </table>
       <input
         class="email-to sub"
         ng-model="receiver.subject"
